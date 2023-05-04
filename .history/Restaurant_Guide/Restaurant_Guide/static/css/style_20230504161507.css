@@ -1,0 +1,586 @@
+/********** Template CSS **********/
+:root {
+    --primary: #F0B71C;
+    --secondary: #191C24;
+    --light: #6C7293;
+    --dark: #000000;
+    --secondary1: #F1F1F1;
+    --dark1: #F1F1F1;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+
+/*** Layout ***/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 284px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--secondary1);
+    transition: 0.5s;
+    z-index: 999;
+}
+
+.content {
+    margin-left: 284px;
+    min-height: 100vh;
+    background: var(--dark1);
+    transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        margin-left: 0;
+    }
+
+    .sidebar.open {
+        margin-left: -284px;
+    }
+
+    .content {
+        width: calc(100% - 284px);
+    }
+
+    .content.open {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        margin-left: -284px;
+    }
+
+    .sidebar.open {
+        margin-left: 0;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+    .sidebar.pe-4.pb-3{
+        top: 64px;
+        padding-right: 0 !important;
+    }
+}
+
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 7px 20px;
+    color: var(--light);
+    font-weight: 500;
+    border-left: 3px solid var(--secondary1);
+    border-radius: 0 30px 30px 0;
+    outline: none;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+    background: var(--dark1);
+    border-color: var(--primary);
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark1);
+    border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: var(--secondary1);
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+    padding-left: 25px;
+    border-radius: 0 30px 30px 0;
+    color: var(--light);
+}
+
+.sidebar .navbar .dropdown-item:hover,
+.sidebar .navbar .dropdown-item.active {
+    background: var(--dark1);
+}
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: var(--light);
+    outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark1);
+    border-radius: 40px;
+}
+
+.content .navbar .dropdown-item {
+    color: var(--light);
+}
+
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+    background: var(--dark1);
+}
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}
+
+
+/*** Date Picker ***/
+.bootstrap-datetimepicker-widget.bottom {
+    top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+    border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+    font-weight: 500;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+    background: var(--primary);
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+    border-bottom-color: var(--primary);
+}
+
+
+/*** Testimonial ***/
+.progress .progress-bar {
+    width: 0px;
+    transition: 2s;
+}
+
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 5px solid var(--primary);
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--dark1);
+    border-color: var(--primary);
+}
+
+.h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    color: black;   
+}
+
+.fa-2xl{
+    font-size: 2.5em; 
+}
+
+h6{
+    font-size: .8rem;
+}
+
+a  {
+    color: #dea509;
+}
+
+a.col-sm-6.col-xl-3:hover {
+    color: #cd9700;
+    font-weight: 600;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #cd9700;
+    border-color: #cd9700;
+}
+
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #cd9700;
+    border-color: #cd9700;
+}
+.btn-primary:active, .btn-primary:focus {
+    color: #fff;
+    background-color: #af8103;
+    border-color: #af8103;
+}
+
+
+
+a.nav-link.dropdown-toggle.hidden-after::after{
+    display: none;
+}
+
+
+
+
+/* CSS Table Start ============================================================ */
+/* CSS Table Start ============================================================ */
+.table_baoquanh{
+    max-height: 50vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: fit-content;
+    min-height: 50vh;
+    height: fit-content;
+
+}
+
+
+table{
+    table-layout: fixed;
+    margin-right: 20px; 
+}
+
+
+    
+    .mau_table_tieude {
+    position: sticky;
+    top: 0px;
+    background-color: #f7ca49;
+    color: black;
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    outline: 0.9px solid white;
+    border: 1.5px solid white;
+    padding: 0 10px;
+  }
+
+
+
+
+  table th {
+    position: sticky;
+    top: 0px;
+    background-color: #f7ca49;
+    color: black;
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    outline: 0.9px solid white;
+    border: 1.5px solid white;
+    padding: 0 10px;
+  }
+
+
+
+
+  table td {
+    padding-right: 15px;
+
+  }
+
+  table td {
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid rgb(177, 177, 177);
+    padding-left: 20px;
+
+  }
+
+
+  /* @media(max-width: 1199px) {
+    .table-wrapper {
+      max-width: 930px;
+      min-width: 930px;
+    }
+
+    .outer-wrapper {
+      width: auto;
+    }
+  }
+
+
+  @media(max-width: 991px) {
+    .table-wrapper {
+      max-width: 690px;
+      min-width: 690px;
+    }
+
+    .outer-wrapper {
+      width: auto;
+    }
+  }
+
+
+  @media(max-width: 767px) {
+    .table-wrapper {
+      max-width: 510px;
+      min-width: 510px;
+    }
+
+    .outer-wrapper {
+      width: auto;
+    }
+  }
+
+
+  @media(max-width: 595px) {
+    .table-wrapper {
+      max-width: 400px;
+      min-width: 400px;
+    }
+
+    .outer-wrapper {
+      width: auto;
+    }
+  }
+
+
+  @media(max-width: 457px) {
+    .table-wrapper {
+      margin: 10px;
+      min-width: 350px;
+    }
+
+    .outer-wrapper {
+      width: auto;
+    }
+
+    table th {
+      font-size: 12px;
+    }
+
+    table td {
+      font-size: 12px;
+    }
+  }
+
+  @media(max-width: 360px) {
+    .table-wrapper {
+      margin: 10px;
+      min-width: 290px;
+    }
+
+    .outer-wrapper {
+      width: auto;
+    }
+
+    table th {
+      font-size: 12px;
+    }
+
+    table td {
+      font-size: 12px;
+    }
+  } */
+/* CSS Table END ============================================================ */
+/* CSS Table END ============================================================ */
+
+
+
+.sidebar.pe-4.pb-3{
+    padding-right: 0 !important;
+}
+
+
+
+
+.input_table{
+    width: 100%;
+    height: 45px;
+}
+.input_table_file{
+    padding-top: 8px;
+}
+
+.input_table:focus-visible{
+    border-color: #cd9700 !important;
+}
+
+td.chinhlai_input_the_td{
+    padding: 0px;
+}
+
+
+
+
+/* ======================= Thong bao thanh cong Start ========================================= */
+.success-notification {
+    background-color: lightgreen;
+    padding: 20px;
+    display: none;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+
+.success-notification i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+
+.success-notification p {
+    font-size: 16px;
+    margin: 0;
+    color: #ffffff;
+}
+
+
+.close-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: -5px;
+}
+
+/* ======================= Thong bao thanh cong End ========================================= */
+
+
+
+/* ======================= Icon Insert Nổi Start ========================================= */
+a.btn.btn-lg.btn-primary.btn-lg-square.back-to-top{
+    
+}
+
+.bi.bi-arrow-up::before {
+    content: "\f0fe";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: white;
+    font-size: 20px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 9px;
+    left: 15px;
+}
+/* ======================= Icon Insert Nổi End ========================================= */
+
